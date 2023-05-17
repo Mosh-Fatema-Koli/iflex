@@ -29,11 +29,12 @@ class LoginApiImpl implements LoginApiHelper{
 
   Future<LoginResponseModel?> userLogin({required LoginRequestModel loginRequestModel})async  {
     try {
-      Uri url = Uri.parse("${ApiUrls.LOGIN}");
-
+      Uri url = Uri.parse(ApiUrls.LOGIN);
       LoginResponseModel loginResponseModel;
+      String loginBody = jsonEncode(loginRequestModel.toJson());
       final http.Response response = await http
-          .post(url, headers: {'Content-Type': 'application/json'})
+          .post(url, body: loginBody,
+          headers: {'Content-Type': 'application/json'})
           .timeout(const Duration(minutes: 1));
       if (response.statusCode == 200 || response.statusCode == 201) {
         loginResponseModel = LoginResponseModel.fromJson(jsonDecode(response.body));
