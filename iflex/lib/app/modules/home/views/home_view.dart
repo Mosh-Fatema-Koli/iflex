@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/home/views/mobile_recharge.dart';
+import 'package:iflex/app/modules/more/views/notification.dart';
 import 'package:iflex/app/modules/profile/views/profile_view.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
@@ -56,7 +57,7 @@ class HomeView extends GetView<HomeController> {
                                     child: Image.asset("images/user.png",height: 25,)),
                                 KText(text: "i- Flex",fontSize: 16,fontWeight: FontWeight.bold,color:Colors.blue[900] ,),
                                 IconButton(onPressed: (){
-                                //  Get.to(NotificationPage());
+                              Get.to(NotificationPage());
                                 },icon: Icon(Icons.notifications_none_outlined,color: Colors.blue[900],size: 25,))
                               ],
                             ),
