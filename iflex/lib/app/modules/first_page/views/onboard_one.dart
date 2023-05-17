@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/first_page/views/oneboard_two.dart';
+import 'package:iflex/app/modules/login/views/login_view.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 import 'package:lottie/lottie.dart';
 
@@ -24,7 +25,7 @@ class OneboardOne extends StatelessWidget {
               ),
           GestureDetector(
             onTap: (){
-             // Get.to(LoginPage());
+              Get.to(LoginView());
             },
             child: Container(
               child: KText(text: "Skip>>",),

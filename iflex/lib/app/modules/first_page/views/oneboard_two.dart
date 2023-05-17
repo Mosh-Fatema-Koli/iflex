@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iflex/app/modules/login/views/login_view.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 import 'package:lottie/lottie.dart';
 
@@ -19,7 +21,7 @@ class Onboardtwo extends StatelessWidget {
             ),
             GestureDetector(
               onTap: (){
-               // Get.to(LoginPage());
+               Get.to(LoginView());
               },
               child: Container(
                 child: KText(text: "Skip>>",),
@@ -48,7 +50,7 @@ class Onboardtwo extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor:  Colors.blue[900],
         onPressed: (){
-        //  Get.to(LoginPage());
+          Get.to(LoginView());
         },
         child: Icon(Icons.arrow_forward_outlined),
       ),

@@ -49,12 +49,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () => const LoginView(),
+      page: () => LoginView(),
       binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.REGISTRATION,
-      page: () => const RegistrationView(),
+      page: () => RegistrationView(),
       binding: RegistrationBinding(),
     ),
     GetPage(
@@ -84,7 +84,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CHANGE_PASSWORD,
-      page: () => const ChangePasswordView(),
+      page: () => ChangePasswordView(),
       binding: ChangePasswordBinding(),
     ),
 

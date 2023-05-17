@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iflex/app/modules/favourite_Contact/views/add_favourite.dart';
+import 'package:iflex/app/modules/widget/hexcolor.dart';
+import 'package:iflex/app/modules/widget/k_Text.dart';
 
 import '../controllers/favourite_contact_controller.dart';
 
@@ -10,15 +13,34 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FavouriteContactView'),
-        centerTitle: true,
+        title:KText(text: 'FAVOURITE CONTACTS',color: Colors.white,),
+        actions: [
+          IconButton(onPressed: (){
+            Get.to(AddFavourite());
+          }, icon:Icon(Icons.person_add))
+        ],
       ),
-      body: const Center(
-        child: Text(
-          'FavouriteContactView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Column(
+        children: [
+          Container(
+            color: HexColor("#EFF2F9"),
+            width: MediaQuery.of(context).size.width,
+            child: Padding(
+
+              padding: const EdgeInsets.all(15),
+              child: KText(text: 'MY FAVOURITE CONTACTS',fontSize: 12,),
+            ),
+          ),
+        ],
       ),
     );
   }
+  favourite(){
+    return ListView(
+
+
+    );
+
+  }
 }
+

@@ -11,7 +11,7 @@ class LoginApiImpl implements LoginApiHelper{
   @override
   Future<LoginResponseModel?> userLogin({required LoginRequestModel loginRequestModel})async  {
     try {
-      Uri url = Uri.parse("${ApiUrls.logInUrl}?email=${loginRequestModel.email}&password=${loginRequestModel.password}");
+      Uri url = Uri.parse("${ApiUrls.LOGIN}?email=${loginRequestModel.email}&password=${loginRequestModel.password}");
       LoginResponseModel loginResponseModel;
       final http.Response response = await http
           .post(url, headers: {'Content-Type': 'application/json'})

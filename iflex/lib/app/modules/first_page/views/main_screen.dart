@@ -1,4 +1,3 @@
-import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:iflex/app/modules/history/views/history_view.dart';
 import 'package:iflex/app/modules/home/views/home_view.dart';
@@ -15,103 +14,59 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 
-  final _pageController = PageController(initialPage: 0);
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  int maxCount = 4;
-
-  /// widget list
-  final List<Widget> bottomBarPages = [
+  static const List<Widget> _widgetOptions = <Widget>[
     HomeView(),
-    OfferView(),HistoryView(),MoreView()
-
+    OfferView(),
+    HistoryView(),
+    MoreView()
   ];
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
-      ),
-      extendBody: true,
+      return Scaffold(
 
-      bottomNavigationBar: (bottomBarPages.length <= maxCount)
-          ? AnimatedNotchBottomBar(
-        pageController: _pageController,
-        color: Colors.white,
-        showLabel: true,
-        notchColor: Colors.blue,
-        bottomBarItems: [
-          const BottomBarItem(
-            inActiveItem: Icon(
-              Icons.home_filled,
-              color: Colors.blueGrey,
+        body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled),
+              label: 'Home',
             ),
-            activeItem: Icon(
-              Icons.home_filled,
-              color: Colors.white,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_offer),
+              label: 'Offer',
             ),
-            itemLabel: 'Home',
-          ),
-          const BottomBarItem(
-            inActiveItem: Icon(
-              Icons.local_offer,
-              color: Colors.blueGrey,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.history),
+              label: 'History',
+
             ),
-            activeItem: Icon(
-              Icons.local_offer,
-              color: Colors.white,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu),
+              label: 'More',
+
             ),
-            itemLabel: 'Offer',
-          ),
-          const BottomBarItem(
-            inActiveItem: Icon(
-              Icons.history,
-              color: Colors.blueGrey,
-            ),
-            activeItem: Icon(
-              Icons.history,
-              color: Colors.white,
-            ),
-            itemLabel: 'History',
-          ),
-          const BottomBarItem(
-            inActiveItem: Icon(
-              Icons.menu,
-              color: Colors.blueGrey,
-            ),
-            activeItem: Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
-            itemLabel: 'More',
-          ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey[600],
+          showUnselectedLabels: true,
+          onTap: _onItemTapped,
+        ),
+      );
 
 
-        ],
-        onTap: (index) {
-          /// control your animation using page controller
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeIn,
-          );
-        },
-      )
-          : null,
-    );
+
   }
 }
