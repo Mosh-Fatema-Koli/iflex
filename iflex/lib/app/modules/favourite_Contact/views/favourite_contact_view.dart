@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/favourite_Contact/views/add_favourite.dart';
+import 'package:iflex/app/modules/favourite_Contact/views/favouritecontact_update.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 
@@ -31,6 +32,17 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
               child: KText(text: 'MY FAVOURITE CONTACTS',fontSize: 12,),
             ),
           ),
+          ListTile(
+
+            title: KText(text: "Name",),
+            subtitle: KText(text: "01302607702",),
+            trailing:IconButton(onPressed: (){
+              Get.to(FavouriteContactEdit());
+            },icon:Icon (Icons.edit),
+            ),
+
+          )
+
         ],
       ),
     );

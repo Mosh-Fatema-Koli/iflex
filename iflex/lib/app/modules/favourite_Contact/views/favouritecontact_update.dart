@@ -30,7 +30,9 @@ class FavouriteContactEdit extends StatelessWidget {
 
             Apputils.sizeH10,
 
-            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'Update',color: Colors.white,),)
+            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'Update',color: Colors.white,),),
+            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.red,child: KText(text: 'Update',color: Colors.white,),)
+
           ],
         ),
       ),
