@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:iflex/app/commons/widgets/global_widgets.dart';
-import 'package:iflex/app/modules/first_page/views/main_screen.dart';
 import 'package:iflex/app/modules/registration/views/registration_view.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 import 'package:lottie/lottie.dart';
 
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
-  @override
+   LoginView({Key? key}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,6 @@ class LoginView extends GetView<LoginController> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Form(
-            key: controller.formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -80,7 +79,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                     GestureDetector(
                         onTap: () {
-                          Get.to(RegistrationView());
+                          Get.toNamed(Routes.REGISTRATION);
                         },
                         child: KText(
                           text: "Click Here",

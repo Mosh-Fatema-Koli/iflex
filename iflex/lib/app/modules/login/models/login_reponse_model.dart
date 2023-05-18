@@ -10,3 +10,16 @@ class LoginResponseModel {
   }
 
 }
+
+
+
+class LoginErrorModel {
+  String? detail;
+
+  LoginErrorModel({this.detail});
+
+  LoginErrorModel.fromJson(Map<String, dynamic> json) {
+    detail = json['detail'];
+  }
+
+}

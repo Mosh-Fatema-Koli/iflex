@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iflex/app/commons/widgets/global_widgets.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 
 import '../controllers/registration_controller.dart';
 
 class RegistrationView extends GetView<RegistrationController> {
-  RegistrationView({Key? key}) : super(key: key);
-  final formKey = GlobalKey<FormState>();
+  const RegistrationView({Key? key}) : super(key: key);
 
 
   @override
@@ -18,7 +19,6 @@ class RegistrationView extends GetView<RegistrationController> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Form(
-            key:  formKey,
 
             child: Column(
 
@@ -40,54 +40,28 @@ class RegistrationView extends GetView<RegistrationController> {
                   suffixIcon: Icon(Icons.call),
                   hintText: "Enter your Phone Number",
                   keybord:TextInputType.number,
-                //  controller: registerationController.userController.value,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your phone number';
-                    }
-                    return null;
-                  },
+                 controller: controller.userController,
+                  validator: controller.phonvalidator,
                 ),
+
                 SignUpTextField(
                   suffixIcon: Icon(Icons.email),
                   hintText: "Enter your email",
-                //  controller: registerationController.emailController.value,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    return null;
-
-                  },
+                  controller: controller.emailController,
+                  validator: controller.emailvalidator,
                 ),
 
-                // TextboxWidget(
-                //   hintText: "Enter your password",
-                //   isPassword: true,
-                //   controller: registerationController.passwordController.value,
-                //
-                //
-                // ),
+                TextboxWidget(
+                  hintText: "Enter your password",
+                  isPassword: true,
+                  controller: controller.passwordController,
+
+                ),
 
 
                 SizedBox(height: 10,),
 
-                Obx(() => MaterialButton(
-
-                    onPressed: (){
-
-                      if (formKey.currentState!.validate()) {
-
-                       // registerationController.registerWithEmail();
-
-                      }
-
-                    },
-                    minWidth: MediaQuery.of(context).size.width,
-                    color: Colors.blue[900],
-
-                    height: 45,
-                    child:KText(text: "Sign Up",fontSize: 16,color: Colors.white,)),),
+                GlobalWidgets.buttonWidget(text: 'Registration', press: controller.registerWithEmail),
 
                 SizedBox(height: 20,),
                 Row(
@@ -96,7 +70,7 @@ class RegistrationView extends GetView<RegistrationController> {
                     KText(text: "Do you Have account ?  ",color: Colors.black,),
                     GestureDetector(
                         onTap: (){
-                       //   Get.to(LoginPage());
+                       Get.toNamed(Routes.LOGIN);
                         },
                         child: KText(text: "Click Here",color: Colors.blue,)),
                   ],

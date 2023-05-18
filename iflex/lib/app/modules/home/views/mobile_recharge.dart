@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/home/views/all_offer.dart';
-import 'package:iflex/app/modules/home/views/invoice.dart';
+import 'package:iflex/app/modules/home/views/payment_summary.dart';
 import 'package:iflex/app/modules/home/views/phone_no.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
@@ -145,7 +145,7 @@ class MobileRecharge extends StatelessWidget {
             ],
           ),
           MaterialButton(onPressed: (){
-            Get.to(InvoicePage());
+            Get.to(SummaryPage());
           },
             minWidth: MediaQuery.of(context).size.width,
             color: Colors.blue,

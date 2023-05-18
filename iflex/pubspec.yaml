@@ -3,7 +3,7 @@ version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
 environment:
-  sdk: 2.19.0-146.2.beta
+  sdk: 3.0.0
 
 dependencies:
 
@@ -23,6 +23,7 @@ dependencies:
   flutter_image_compress:
   intl:
   lottie:
+  flutter_launcher_icons:
 
 
 
@@ -48,3 +49,11 @@ flutter:
   assets:
     - images/
 
+flutter_icons:
+
+  ios: true
+  android: true
+  image_path_ios: "images/logo.jpeg"
+  image_path_android: "images/logo.jpeg"
+#  adaptive_icon_background: "assets/launcher/background.png"
+#  adaptive_icon_foreground: "assets/launcher/foreground.png"
