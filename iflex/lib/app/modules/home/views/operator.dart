@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iflex/app/data/operator_controller.dart';
+import 'package:iflex/app/commons/controllers/operator_controller.dart';
 import 'package:iflex/app/modules/home/views/mobile_recharge.dart';
 import 'package:iflex/app/modules/more/views/more_view.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';

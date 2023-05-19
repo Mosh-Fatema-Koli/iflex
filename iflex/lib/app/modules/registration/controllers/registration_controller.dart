@@ -11,10 +11,9 @@ class RegistrationController extends GetxController {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final  TextEditingController userController = TextEditingController();
+  final TextEditingController userController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
 
   @override
   void onInit() {
@@ -31,60 +30,42 @@ class RegistrationController extends GetxController {
     super.onClose();
   }
 
-  String? phonvalidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your phone number';
-    }
-    return null;
-  }
-    String? emailvalidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your valid number';
-    }
-    return null;
-  }
 
 
   Future<void> registerWithEmail() async {
-
     GlobalWidgets.customLoader();
 
     try {
-
-      http.Response response = await http.post(Uri.parse(ApiUrls.REGISTRATION),body: {
-
-        'username':userController.text,
+      http.Response response =
+          await http.post(Uri.parse(ApiUrls.REGISTRATION), body: {
+        'username': userController.text,
         'email': emailController.text,
         'password': passwordController.text
-
       });
 
-      var data= jsonDecode(response.body);
+      var data = jsonDecode(response.body);
 
       print(data);
       print(response.statusCode);
 
       Get.back();
 
-      if(response.statusCode == 200 || response.statusCode == 201){
-
+      if (response.statusCode == 200 || response.statusCode == 201) {
         userController.clear();
         emailController.clear();
         passwordController.clear();
 
-        Get.snackbar("Registration Successfull","congatulation",backgroundColor: Colors.indigo[400],colorText: Colors.white);
-
+        Get.snackbar("Registration Successfull", "congatulation",
+            backgroundColor: Colors.indigo[400], colorText: Colors.white);
 
         Get.toNamed(Routes.LOGIN);
+      } else {
+        var data = jsonEncode(response.body);
+        Get.snackbar(
+            "Registration Failed", "Please enter your valid number and email",
+            backgroundColor: Colors.indigo[400], colorText: Colors.white);
       }
-      else{
-
-        var data= jsonEncode(response.body);
-        Get.snackbar("Registration Failed", "Please enter your valid number and email",backgroundColor: Colors.indigo[400],colorText: Colors.white);
-      }
-
     } catch (e) {
-
       userController.clear();
       emailController.clear();
       passwordController.clear();

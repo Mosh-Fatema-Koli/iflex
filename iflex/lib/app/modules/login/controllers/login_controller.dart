@@ -5,16 +5,13 @@ import 'package:iflex/app/commons/widgets/global_widgets.dart';
 import 'package:iflex/app/modules/first_page/views/main_screen.dart';
 import 'package:iflex/app/modules/login/models/login_reponse_model.dart';
 import 'package:iflex/app/modules/login/models/login_request_model.dart';
-import 'package:iflex/app/modules/login/repository/login_api_helper.dart';
-import 'package:iflex/app/modules/login/repository/login_api_impl.dart';
+import 'package:iflex/app/modules/login/repository/login_repository.dart';
 
 class LoginController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final TextEditingController tecPhone = TextEditingController();
   final TextEditingController tecPassword = TextEditingController();
-
-  LoginApiHelper loginApi = LoginApiImpl();
 
   @override
   void onInit() {
@@ -28,6 +25,8 @@ class LoginController extends GetxController {
 
   @override
   void onClose() {
+    // tecPhone.dispose();
+    // tecPassword.dispose();
     super.onClose();
   }
 
@@ -43,7 +42,7 @@ class LoginController extends GetxController {
     LoginRequestModel loginRequestModel = LoginRequestModel(
         username: tecPhone.text.trim(), password: tecPassword.text.trim());
 
-    loginApi
+    LoginRepository
         .userLogin(loginRequestModel: loginRequestModel)
         .then((LoginResponseModel? responseData) async {
       Get.back();

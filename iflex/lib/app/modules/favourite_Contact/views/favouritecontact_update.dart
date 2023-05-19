@@ -25,6 +25,10 @@ class FavouriteContactEdit extends StatelessWidget {
             ),
             SignUpTextField(
               hintText: 'Enter Your Name',
+              keybord: TextInputType.phone,
+            ),
+            SignUpTextField(
+              hintText: '',
               keybord: TextInputType.number,
             ),
 

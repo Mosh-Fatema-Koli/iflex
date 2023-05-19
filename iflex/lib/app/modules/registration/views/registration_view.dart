@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iflex/app/commons/utils/validators.dart';
 import 'package:iflex/app/commons/widgets/global_widgets.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
@@ -41,14 +42,14 @@ class RegistrationView extends GetView<RegistrationController> {
                   hintText: "Enter your Phone Number",
                   keybord:TextInputType.number,
                  controller: controller.userController,
-                  validator: controller.phonvalidator,
+                  validator: Validators.phoneValidator,
                 ),
 
                 SignUpTextField(
                   suffixIcon: Icon(Icons.email),
                   hintText: "Enter your email",
                   controller: controller.emailController,
-                  validator: controller.emailvalidator,
+                  validator: Validators.emailValidator,
                 ),
 
                 TextboxWidget(

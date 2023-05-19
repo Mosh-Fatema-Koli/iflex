@@ -1,23 +1,23 @@
-class FovouriteNumberModel {
+class FavouriteContactModel {
   String? model;
   int? pk;
   Fields? fields;
 
-  FovouriteNumberModel({this.model, this.pk, this.fields});
+  FavouriteContactModel({this.model, this.pk, this.fields});
 
-  FovouriteNumberModel.fromJson(Map<String, dynamic> json) {
+  FavouriteContactModel.fromJson(Map<String, dynamic> json) {
     model = json['model'];
     pk = json['pk'];
     fields =
-    json['fields'] != null ? new Fields.fromJson(json['fields']) : null;
+    json['fields'] != null ? Fields.fromJson(json['fields']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['model'] = this.model;
-    data['pk'] = this.pk;
-    if (this.fields != null) {
-      data['fields'] = this.fields!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['model'] = model;
+    data['pk'] = pk;
+    if (fields != null) {
+      data['fields'] = fields!.toJson();
     }
     return data;
   }
@@ -26,21 +26,24 @@ class FovouriteNumberModel {
 class Fields {
   String? number;
   String? name;
-  Null? priority;
+  int? priority;
 
   Fields({this.number, this.name, this.priority});
 
   Fields.fromJson(Map<String, dynamic> json) {
     number = json['number'];
     name = json['name'];
-    priority = json['priority'];
+    if( json['priority'] != null)
+    {
+      priority = json['priority'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['number'] = this.number;
-    data['name'] = this.name;
-    data['priority'] = this.priority;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['number'] = number;
+    data['name'] = name;
+    data['priority'] = priority;
     return data;
   }
 }
