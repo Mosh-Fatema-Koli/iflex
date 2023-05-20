@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,9 @@ class PasswordChangeController extends GetxController{
   TextEditingController confirmpassword = TextEditingController();
 
 
-  updatePassword() async {
+ updatePassword() async {
+
+    refreshToken.refreshToken();
     //getx update api data
     isLoaded.value = true;
     final token = await GetStorage().read("token");
@@ -53,42 +56,6 @@ class PasswordChangeController extends GetxController{
         confirmpassword.clear();
 
         print(json);
-      }
-
-
-      else if(response.statusCode == 401) {
-
-        refreshToken.refreshToken();
-
-        http.Response response3 = await http.put(Uri.parse(ApiUrls.PROFILE),
-
-          body: jsonEncode(body),
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer $token',
-          },
-        );
-
-        print(response3.statusCode);
-        print(response3.body);
-
-        if(response3.statusCode == 200){
-
-          final json = jsonDecode(response.body);
-
-          print('data updated');
-          Get.snackbar('Success', 'Password changed successfully', backgroundColor: Colors.indigo[400],colorText: Colors.white);
-
-          confirmpassword.clear();
-          newpassword.clear();
-          confirmpassword.clear();
-
-          print(json);
-
-        }else{
-          isLoaded.value = false;
-          Get.snackbar("Update Failed "," Try again",backgroundColor: Colors.indigo[400],colorText: Colors.white);
-        }
       }
       else {
         isLoaded.value = false;

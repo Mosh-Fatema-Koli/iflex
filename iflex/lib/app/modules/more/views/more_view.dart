@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iflex/app/commons/controllers/ref_token.dart';
 import 'package:iflex/app/modules/change_password/views/change_password_view.dart';
-import 'package:iflex/app/modules/favourite_Contact/views/favourite_contact_view.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/views/favourite_contact_view.dart';
 import 'package:iflex/app/modules/more/views/about_us.dart';
 import 'package:iflex/app/modules/more/views/help.dart';
 import 'package:iflex/app/modules/more/views/privecy_policy.dart';
@@ -11,11 +12,15 @@ import 'package:iflex/app/modules/profile/views/profile_view.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 
 import '../controllers/more_controller.dart';
 
 class MoreView extends GetView<MoreController> {
-  const MoreView({Key? key}) : super(key: key);
+ MoreView({Key? key}) : super(key: key);
+
+  final logout = Get.put(RefreshTokenController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +39,7 @@ class MoreView extends GetView<MoreController> {
             ),
             GestureDetector(
               onTap: (){
-                Get.to(ProfileView());
+                Get.toNamed(Routes.PROFILE);
               },
               child: Padding(
                 padding: const EdgeInsets.all(10),
@@ -76,7 +81,7 @@ class MoreView extends GetView<MoreController> {
                 children: [
                   GestureDetector(
                     onTap: (){
-                 Get.to(FavouriteContactView());
+                Get.toNamed(Routes.FAVOURITE_CONTACT);
                     },
                     child: ListTile(
                       leading: Icon(Icons.contact_page,color: Colors.blue[900],),
@@ -111,7 +116,7 @@ class MoreView extends GetView<MoreController> {
                 children: [
                   GestureDetector(
                     onTap: (){
-                   Get.to(ChangePasswordView());
+                   Get.toNamed(Routes.CHANGE_PASSWORD);
                     },
                     child: ListTile(
                       leading: Icon(Icons.password,color: Colors.blue[900],),
@@ -165,7 +170,7 @@ class MoreView extends GetView<MoreController> {
                   ListTile(
                     onTap: (){
 
-                     // logout.logout();
+                     logout.logout();
                     },
                     leading: Icon(Icons.logout,color: Colors.blue[900],),
                     title: KText(text: "Sign Out",),

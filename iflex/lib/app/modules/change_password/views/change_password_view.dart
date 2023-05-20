@@ -25,42 +25,42 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
 
           child: Column(
             children: [
-              // TextboxWidget(
-              //   hintText: " Current Password",
-              //   isPassword: true,
-              //   controller: changePassword.currentpassword ,
-              // ),
-              // TextboxWidget(
-              //   hintText: "New Password",
-              //   isPassword: true,
-              //   controller: changePassword.newpassword,
-              // ),
-              // TextboxWidget(
-              //   hintText: "Confirm Password",
-              //   isPassword: true,
-              //   controller: changePassword.confirmpassword,
-              // ),
-              //
-              // MaterialButton(onPressed: (){
-              //
-              //   if (_formKey.currentState!.validate() ) {
-              //
-              //     if(changePassword.newpassword.text == changePassword.confirmpassword.text){
-              //       changePassword.updatePassword();
-              //     }else{
-              //
-              //       changePassword.currentpassword.clear();
-              //       changePassword.newpassword.clear();
-              //       changePassword.confirmpassword.clear();
-              //
-              //       Get.snackbar("Password did not match","Try again",backgroundColor: Colors.indigo[400],colorText: Colors.white);
-              //     }
-              //
-              //   }
-              //   return null;
-              // },
+              TextboxWidget(
+                hintText: " Current Password",
+                isPassword: true,
+                controller: controller.currentpassword ,
+              ),
+              TextboxWidget(
+                hintText: "New Password",
+                isPassword: true,
+                controller: controller.newpassword,
+              ),
+              TextboxWidget(
+                hintText: "Confirm Password",
+                isPassword: true,
+                controller: controller.confirmpassword,
+              ),
 
-               // color:Colors.blue, child: KText(text: "Update",color: Colors.white,),)
+              MaterialButton(onPressed: (){
+
+                if (_formKey.currentState!.validate() ) {
+
+                  if(controller.newpassword.text == controller.confirmpassword.text){
+                    controller.updatePassword;
+                  }else{
+
+                    controller.currentpassword.clear();
+                    controller.newpassword.clear();
+                    controller.confirmpassword.clear();
+
+                    Get.snackbar("Password did not match","Try again",backgroundColor: Colors.indigo[400],colorText: Colors.white);
+                  }
+
+                }
+                return null;
+              },
+
+               color:Colors.blue, child: KText(text: "Update",color: Colors.white,),)
             ],
           ),
         ),

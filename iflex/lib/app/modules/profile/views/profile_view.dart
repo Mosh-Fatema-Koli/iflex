@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/more/views/more_view.dart';
-import 'package:iflex/app/modules/profile/views/Edit_profile.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 
 import '../controllers/profile_controller.dart';
 
@@ -18,11 +18,11 @@ class ProfileView extends GetView<ProfileController> {
       appBar: AppBar(elevation: 0,
         actions: [
           IconButton(onPressed: (){
-            Get.to(EditPage());
+            Get.toNamed(Routes.PROFILE_EDIT);
           }, icon: Icon(Icons.edit))
         ],
       ),
-      body:  SingleChildScrollView(
+      body: Obx(() => controller.isLoaded.value ? Center(child: CircularProgressIndicator()) :  SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,7 +50,7 @@ class ProfileView extends GetView<ProfileController> {
                   Apputils.sizeH10,
                   Row(
                     children: [
-                      KText(text: "",),
+                      KText(text: "${controller.user?.firstName} ${controller.user?.lastName}",),
                       // Apputils.sizeW5,
                       // KText(text: usercon.user?.lastName),
                     ],
@@ -69,7 +69,7 @@ class ProfileView extends GetView<ProfileController> {
                 children: [
                   KText(text: 'Email'),
                   Apputils.sizeH10,
-                  KText(text: "usercon.user?.email"),
+                  KText(text: controller.user?.email),
 
 
                 ],
@@ -84,7 +84,7 @@ class ProfileView extends GetView<ProfileController> {
                 children: [
                   KText(text: 'Number'),
                   Apputils.sizeH10,
-                  KText(text: ""),
+                  KText(text: "${controller.user?.username}"),
                 ],
               ),
             ),
@@ -95,7 +95,7 @@ class ProfileView extends GetView<ProfileController> {
 
           ],
         ),
-      )
+      )),
     );
   }
 }

@@ -13,6 +13,10 @@ abstract class Routes {
   static const FAVOURITE_CONTACT = _Paths.FAVOURITE_CONTACT;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const FIRST_PAGE = _Paths.FIRST_PAGE;
+  static const FAVOURITE_CONTACT_DELETE = _Paths.FAVOURITE_CONTACT_DELETE;
+  static const FAVOURITE_CONTACT_UPDATE = _Paths.FAVOURITE_CONTACT_UPDATE;
+  static const FAVOURITE_CONTACT_ADD = _Paths.FAVOURITE_CONTACT_ADD;
+  static const PROFILE_EDIT = _Paths.PROFILE_EDIT;
 }
 
 abstract class _Paths {
@@ -27,4 +31,8 @@ abstract class _Paths {
   static const FAVOURITE_CONTACT = '/favourite-contact';
   static const CHANGE_PASSWORD = '/change-password';
   static const FIRST_PAGE = '/first-page';
+  static const FAVOURITE_CONTACT_DELETE = '/favourite-contact-delete';
+  static const FAVOURITE_CONTACT_UPDATE = '/favourite-contact-update';
+  static const FAVOURITE_CONTACT_ADD = '/favourite-contact-add';
+  static const PROFILE_EDIT = '/profile-edit';
 }

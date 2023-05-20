@@ -7,6 +7,7 @@ import 'package:iflex/app/modules/profile/views/profile_view.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -52,7 +53,7 @@ class HomeView extends GetView<HomeController> {
                               children: [
                                 GestureDetector(
                                     onTap: (){
-                                 Get.to(ProfileView());
+                                      Get.toNamed(Routes.PROFILE);
                                     },
                                     child: Image.asset("images/user.png",height: 25,)),
                                 KText(text: "i- Flex",fontSize: 16,fontWeight: FontWeight.bold,color:Colors.blue[900] ,),

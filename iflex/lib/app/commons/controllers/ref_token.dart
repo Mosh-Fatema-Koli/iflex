@@ -6,6 +6,7 @@ import 'package:iflex/app/commons/constants/api_urls.dart';
 import 'package:iflex/app/modules/first_page/views/main_screen.dart';
 import 'package:iflex/app/modules/first_page/views/onboard_one.dart';
 import 'package:iflex/app/modules/login/views/login_view.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 
 
 
@@ -87,7 +88,7 @@ class RefreshTokenController extends GetxController {
       );
       GetStorage().remove("token");
       GetStorage().remove("refreshToken");
-      Get.offAll(LoginView());
+      Get.toNamed(Routes.LOGIN);
 
 
     }catch(e){

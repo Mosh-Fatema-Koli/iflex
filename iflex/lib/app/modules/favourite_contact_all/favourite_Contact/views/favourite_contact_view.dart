@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:iflex/app/modules/favourite_Contact/models/favourite_contact_model.dart';
-import 'package:iflex/app/modules/favourite_Contact/views/add_favourite.dart';
-import 'package:iflex/app/modules/favourite_Contact/views/favouritecontact_update.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/models/favourite_contact_model.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/views/favouritecontact_update.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
+import 'package:iflex/app/routes/app_pages.dart';
 
 import '../controllers/favourite_contact_controller.dart';
 
@@ -19,7 +19,7 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
         title:KText(text: 'FAVOURITE CONTACTS',color: Colors.white,),
         actions: [
           IconButton(onPressed: (){
-            Get.to(const AddFavourite());
+            Get.toNamed(Routes.FAVOURITE_CONTACT_ADD);
           }, icon:const Icon(Icons.person_add))
         ],
       ),
@@ -66,7 +66,7 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
        subtitle: KText(text: favouriteContact.fields?.number,),
 
        trailing:IconButton(onPressed: (){
-         Get.to(const FavouriteContactEdit());
+          Get.toNamed(Routes.FAVOURITE_CONTACT_UPDATE);
        },icon:const Icon (Icons.edit),
        ),
 

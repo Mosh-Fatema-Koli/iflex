@@ -1,17 +1,16 @@
-
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 
+import '../controllers/profile_edit_controller.dart';
 
-class EditPage extends StatelessWidget {
-  EditPage({Key? key}) : super(key: key);
-
+class ProfileEditView extends GetView<ProfileEditController> {
+  ProfileEditView({Key? key}) : super(key: key);
 
   final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +40,7 @@ class EditPage extends StatelessWidget {
 
                 ),
                 CustomTextField(
-                 // controller: useredit.lastController,
+                  // controller: useredit.lastController,
                   hintText: "Last Name",
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -51,7 +50,7 @@ class EditPage extends StatelessWidget {
                   },
                 ),
                 CustomTextField(
-                 // controller: useredit.emailController,
+                  // controller: useredit.emailController,
                   hintText: "Email",
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -66,7 +65,7 @@ class EditPage extends StatelessWidget {
                 MaterialButton(onPressed: (){
 
                   if (formKey.currentState!.validate()) {
-                  //  useredit.updateData();
+                    //  useredit.updateData();
                   }
 
                 },color:Colors.blue, child: KText(text: "Update",color: Colors.white,),)

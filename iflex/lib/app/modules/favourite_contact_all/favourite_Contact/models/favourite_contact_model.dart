@@ -26,7 +26,7 @@ class FavouriteContactModel {
 class Fields {
   String? number;
   String? name;
-  int? priority;
+  dynamic priority;
 
   Fields({this.number, this.name, this.priority});
 

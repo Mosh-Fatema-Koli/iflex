@@ -23,12 +23,6 @@ class LoginController extends GetxController {
     super.onReady();
   }
 
-  @override
-  void onClose() {
-    // tecPhone.dispose();
-    // tecPassword.dispose();
-    super.onClose();
-  }
 
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
@@ -52,7 +46,7 @@ class LoginController extends GetxController {
         debugPrint("--------------------check-------------------");
         debugPrint(responseData.access.toString());
         debugPrint(responseData.refresh.toString());
-        debugPrint("--------------------check-------------------");
+        debugPrint("--------------------check Save token-------------------");
 
         await GetStorage().write ("token", responseData.access.toString() );
         await GetStorage().write ("refreshToken", responseData.refresh.toString() );
@@ -60,9 +54,10 @@ class LoginController extends GetxController {
         await GetStorage().read("token");
 
         print(GetStorage().read("token").toString());
+        print(GetStorage().read("refreshToken").toString());
 
-           tecPhone.clear();
-           tecPassword.clear();
+           tecPhone.dispose();
+           tecPassword.dispose();
 
         Get.snackbar("Login Successfull", "congrass",backgroundColor: Colors.indigo[400],colorText: Colors.white);
 
