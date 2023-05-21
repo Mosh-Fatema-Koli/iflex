@@ -4,6 +4,7 @@ import 'package:iflex/app/commons/controllers/ref_token.dart';
 import 'package:iflex/app/commons/widgets/global_widgets.dart';
 import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/models/favourite_contact_model.dart';
 import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/models/favourite_contact_response_model.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_contact_Add/models/contact_number_add_model.dart';
 import 'package:iflex/app/modules/favourite_contact_all/favourite_contact_Add/repository/favourit_contact_add_repository.dart';
 import 'package:iflex/app/routes/app_pages.dart';
 
@@ -24,37 +25,61 @@ class FavouriteContactAddController extends GetxController {
   void onReady() {
     super.onReady();
   }
+  @override
+  void onClose() {
+    tecname.dispose();
+    tecphoneno.dispose();
+    tecpriority.dispose();
 
-  void addContactbyClicked() {
+    super.onClose();
+  }
 
-    GlobalWidgets.customLoader();
+  final contactRepository = FavouriteContactAddRepository();
+
+  Future<void> addContact(ContactNumberModel contact) async {
+
     refCotroller.refreshToken();
-    FavouriteContactModel favouriteContactModel = FavouriteContactModel(
-        fields: Fields(
-            name: tecname.text.trim(),
-            number: tecphoneno.text.trim(),
-            priority: tecpriority.text.trim()
-        )
-    );
-
-    FavouriteContactAddRepository.addfavouritecontactnumber(
-        favouriteContactModel: favouriteContactModel).then((ContactAddResponseModel? responseData) async {
+    try {
+      await contactRepository.addContact(contact);
       Get.back();
 
-      if (responseData != null) {
-
-        Get.snackbar("Contact Added Successfully", "congrass",backgroundColor: Colors.indigo[400],colorText: Colors.white);
-        Get.toNamed(Routes.FAVOURITE_CONTACT);
-
-      } else {
-
-        Get.snackbar("Contact Added Failed", "congrass",backgroundColor: Colors.indigo[400],colorText: Colors.white);
-      }
-
-      }
-    );
-
-
+    } catch (e) {
+      print('Error: $e');
+    }
   }
+
+  // void addContactbyClicked() {
+  //
+  //   GlobalWidgets.customLoader();
+  //   refCotroller.refreshToken();
+  //   FavouriteContactModel favouriteContactModel = FavouriteContactModel(
+  //       fields: Fields(
+  //           name: tecname.text.trim(),
+  //           number: tecphoneno.text.trim(),
+  //           priority: tecpriority.text.trim()
+  //       )
+  //   );
+  //
+  //   FavouriteContactAddRepository.addfavouritecontactnumber(
+  //       favouriteContactModel: favouriteContactModel).then((ContactAddResponseModel? responseData) async {
+  //     Get.back();
+  //
+  //     if (responseData != null) {
+  //
+  //       Get.snackbar("Contact Added Successfully", "congrass",backgroundColor: Colors.indigo[400],colorText: Colors.white);
+  //       Get.toNamed(Routes.FAVOURITE_CONTACT);
+  //
+  //     } else {
+  //
+  //       Get.snackbar("Contact Added Failed", "Try again ",backgroundColor: Colors.indigo[400],colorText: Colors.white);
+  //     }
+  //
+  //     }
+  //   );
+  //
+  //
+  // }
+
+
 
 }

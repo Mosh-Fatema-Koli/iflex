@@ -12,6 +12,8 @@ class FavouriteContactController extends GetxController {
   @override
   void onInit() {
     ///have to call refreshToken Api here
+
+    refCotroller.refreshToken();
     fetchFavouriteContactData();
     super.onInit();
   }

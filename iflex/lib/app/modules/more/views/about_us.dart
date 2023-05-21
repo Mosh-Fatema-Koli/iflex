@@ -15,14 +15,16 @@ class AboutUs extends StatelessWidget {
         slivers: <Widget>[
           //2
           SliverAppBar(
-            expandedHeight: 200.0,
+            expandedHeight: 150.0,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'images/images.jpg',
-                fit: BoxFit.fill,
-              ),
+                title: KText(text: "About Us",color: Colors.white,),
+                centerTitle: true,
+                background: Container(
+                  color: Colors.blue,
+                )
             ),
           ),
+          //3
           //3
           SliverList(
             delegate: SliverChildBuilderDelegate(

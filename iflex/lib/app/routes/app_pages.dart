@@ -10,6 +10,8 @@ import '../modules/favourite_contact_all/favourite_contact_Update/bindings/favou
 import '../modules/favourite_contact_all/favourite_contact_Update/views/favourite_contact_update_view.dart';
 import '../modules/first_page/bindings/first_page_binding.dart';
 import '../modules/first_page/views/splash_screen.dart';
+import '../modules/forget_password/bindings/forget_password_binding.dart';
+import '../modules/forget_password/views/forget_password_view.dart';
 import '../modules/history/bindings/history_binding.dart';
 import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -42,12 +44,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () =>  HomeView(),
       binding: HomeBinding(),
       children: [
         GetPage(
           name: _Paths.HOME,
-          page: () => const HomeView(),
+          page: () => HomeView(),
           binding: HomeBinding(),
         ),
       ],
@@ -106,6 +108,11 @@ class AppPages {
       name: _Paths.PROFILE_EDIT,
       page: () => ProfileEditView(),
       binding: ProfileEditBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGET_PASSWORD,
+      page: () => const ForgetPasswordView(),
+      binding: ForgetPasswordBinding(),
     ),
   ];
 }

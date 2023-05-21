@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iflex/app/commons/controllers/ref_token.dart';
 import 'package:iflex/app/modules/home/views/mobile_recharge.dart';
 import 'package:iflex/app/modules/more/views/notification.dart';
 import 'package:iflex/app/modules/profile/views/profile_view.dart';
@@ -12,7 +13,10 @@ import 'package:iflex/app/routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+HomeView({Key? key}) : super(key: key);
+
+  final refCotroller = Get.put(RefreshTokenController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +57,7 @@ class HomeView extends GetView<HomeController> {
                               children: [
                                 GestureDetector(
                                     onTap: (){
+                                      refCotroller.refreshToken();
                                       Get.toNamed(Routes.PROFILE);
                                     },
                                     child: Image.asset("images/user.png",height: 25,)),

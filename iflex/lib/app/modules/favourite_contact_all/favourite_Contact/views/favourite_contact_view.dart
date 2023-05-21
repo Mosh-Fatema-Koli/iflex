@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/models/favourite_contact_model.dart';
-import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/views/favouritecontact_update.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 import 'package:iflex/app/routes/app_pages.dart';
@@ -12,6 +11,7 @@ import '../controllers/favourite_contact_controller.dart';
 
 class FavouriteContactView extends GetView<FavouriteContactController> {
   const FavouriteContactView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

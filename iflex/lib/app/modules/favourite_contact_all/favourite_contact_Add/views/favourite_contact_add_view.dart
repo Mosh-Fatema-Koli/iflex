@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_contact_Add/models/contact_number_add_model.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
@@ -38,7 +39,15 @@ class FavouriteContactAddView extends GetView<FavouriteContactAddController> {
 
             Apputils.sizeH10,
 
-            MaterialButton(onPressed: (){controller.addContactbyClicked;},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'ADD',color: Colors.white,),)
+            MaterialButton(onPressed: (){
+
+              final contact = ContactNumberModel(
+                number: controller.tecphoneno.text,
+                name: controller.tecname.text,
+                priority: controller.tecpriority.text,
+              );
+              controller.addContact(contact);
+            },height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'ADD',color: Colors.white,),)
           ],
         ),
       ),
