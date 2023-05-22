@@ -28,6 +28,8 @@ import '../modules/profile_edit/bindings/profile_edit_binding.dart';
 import '../modules/profile_edit/views/profile_edit_view.dart';
 import '../modules/registration/bindings/registration_binding.dart';
 import '../modules/registration/views/registration_view.dart';
+import '../modules/top_up_offer/bindings/top_up_offer_binding.dart';
+import '../modules/top_up_offer/views/top_up_offer_view.dart';
 
 part 'app_routes.dart';
 
@@ -44,7 +46,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () =>  HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
       children: [
         GetPage(
@@ -113,6 +115,11 @@ class AppPages {
       name: _Paths.FORGET_PASSWORD,
       page: () => const ForgetPasswordView(),
       binding: ForgetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.TOP_UP_OFFER,
+      page: () => const TopUpOfferView(),
+      binding: TopUpOfferBinding(),
     ),
   ];
 }

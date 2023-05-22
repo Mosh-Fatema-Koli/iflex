@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iflex/app/commons/controllers/ref_token.dart';
 import 'package:iflex/app/modules/first_page/views/onboard_one.dart';
 import 'package:iflex/app/modules/widget/app_colors.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
@@ -11,6 +12,7 @@ import 'package:iflex/app/modules/widget/k_Text.dart';
 class SplashScreen extends StatelessWidget {
   SplashScreen({Key? key}) : super(key: key);
 
+  final logincheck = Get.put(RefreshTokenController());
 
 
   @override
@@ -18,9 +20,7 @@ class SplashScreen extends StatelessWidget {
 
     Future.delayed(const Duration(seconds: 3), () {
 
-      Get.to(OneboardOne());
-
-    //  logincheck.checkAccessToken();
+      logincheck.checkAccessToken();
 
     });
 

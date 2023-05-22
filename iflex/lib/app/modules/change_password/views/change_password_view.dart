@@ -46,7 +46,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                 if (_formKey.currentState!.validate() ) {
 
                   if(controller.newpassword.text == controller.confirmpassword.text){
-                    controller.updatePassword;
+                    controller.updatePassword();
                   }else{
 
                     controller.currentpassword.clear();

@@ -5,11 +5,12 @@ class ApiUrls{
   static String REFRESH_TOKEN = '$baseUrl/api/token/refresh/';   //Post
   static String LOGOUT= '$baseUrl/api/logout/';    //Post
   static String REGISTRATION = '$baseUrl/flexi/api/users/';   //Post
+  static String FORGET_PASSWORD = '$baseUrl/api/password-reset/';
 
   static String TOP_UP_REQUEST = '$baseUrl/flexi/api/requests/';  //POST
   static String TOP_UP_REQUEST_HISTORY = '$baseUrl/flexi/api/history/';  // Get
   static String PROFILE = '$baseUrl/flexi/api/users/update/';    //GET, PUT, PATCH,
   static String FAVOURITE_CONTACT='$baseUrl/flexi/api/users/contact/';   // GET, PUT, PATCH, DELETE,
-
+  static String TOP_UP_OFFER='$baseUrl/flexi/api/offer';   // GET, PUT, PATCH, DELETE,
 
 }

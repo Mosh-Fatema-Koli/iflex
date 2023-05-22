@@ -81,7 +81,7 @@ class RefreshTokenController extends GetxController {
     try{
       refreshToken();
       final token = await GetStorage().read("token");
-      final response = await http.post(Uri.parse(ApiUrls.LOGOUT),    headers: {
+      final response = await http.post(Uri.parse(ApiUrls.LOGOUT), headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token',
       },

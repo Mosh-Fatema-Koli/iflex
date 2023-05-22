@@ -18,6 +18,7 @@ abstract class Routes {
   static const FAVOURITE_CONTACT_ADD = _Paths.FAVOURITE_CONTACT_ADD;
   static const PROFILE_EDIT = _Paths.PROFILE_EDIT;
   static const FORGET_PASSWORD = _Paths.FORGET_PASSWORD;
+  static const TOP_UP_OFFER = _Paths.TOP_UP_OFFER;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const FAVOURITE_CONTACT_ADD = '/favourite-contact-add';
   static const PROFILE_EDIT = '/profile-edit';
   static const FORGET_PASSWORD = '/forget-password';
+  static const TOP_UP_OFFER = '/top-up-offer';
 }

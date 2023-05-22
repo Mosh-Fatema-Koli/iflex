@@ -33,11 +33,11 @@ class AllHistoryPage extends StatelessWidget {
                     children: [
                       KText(text: transactionController.transactions[index].recipientNumber,fontSize: 12,),
                       KText(text: transactionController.transactions[index].amount,fontSize: 12,),
-                      KText(text: transactionController.transactions[index].createdAt,fontSize: 12,),
+                      KText(text: transactionController.transactions[index].createdAt.toString().substring(0, 10),fontSize: 12,),
                      Container(
 
                          decoration:BoxDecoration(
-                           color: Colors.green,
+                           color: Colors.blue,
                            borderRadius: BorderRadius.circular(10)
                          ),
                          child: Padding(

@@ -51,16 +51,6 @@ class LoginView extends GetView<LoginController> {
                   isPassword: true,
                   controller: controller.tecPassword,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    KText(
-                      text: "Forget password?",
-                      color: Colors.blue,
-                      textAlign: TextAlign.right,
-                    ),
-                  ],
-                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -87,6 +77,20 @@ class LoginView extends GetView<LoginController> {
                         )),
                   ],
                 ),
+                SizedBox(
+                  height: 15,
+                ),
+                GestureDetector(
+                  onTap: (){
+                    Get.toNamed(Routes.FORGET_PASSWORD);
+                  },
+                  child: KText(
+                    text: "Forget password?",
+                    color: Colors.blue,
+                    textAlign: TextAlign.right,
+                  ),
+                ),
+
               ],
             ),
           ),

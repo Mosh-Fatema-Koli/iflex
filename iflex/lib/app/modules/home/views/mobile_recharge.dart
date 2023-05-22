@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:iflex/app/modules/home/views/all_offer.dart';
 import 'package:iflex/app/modules/home/views/payment_summary.dart';
 import 'package:iflex/app/modules/home/views/phone_no.dart';
+import 'package:iflex/app/modules/top_up_offer/views/top_up_offer_view.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
@@ -85,7 +86,7 @@ class MobileRecharge extends StatelessWidget {
                       ),
                       GestureDetector(
                           onTap: (){
-                            Get.to(Alloffers());
+                            Get.to(TopUpOfferView());
                           },
                           child: KText(text: "View All"))
                     ],

@@ -11,6 +11,9 @@ class OfferView extends GetView<OfferController> {
   const OfferView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
       backgroundColor: HexColor("#EFF2F9"),
       body: Column(
