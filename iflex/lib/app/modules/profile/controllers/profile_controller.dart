@@ -34,8 +34,6 @@ class ProfileController extends GetxController {
 
   Future<void> fetchUser() async{
 
-    refCotroller.refreshToken();
-
     isLoaded.value = true;
 
     final token = await GetStorage().read("token");

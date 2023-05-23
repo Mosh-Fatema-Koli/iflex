@@ -14,6 +14,7 @@ class TopUpOfferController extends GetxController {
 
   @override
   void onInit() {
+    refCotroller.refreshToken();
     fetchTopUpData();
     super.onInit();
   }
@@ -25,7 +26,7 @@ class TopUpOfferController extends GetxController {
 
 
   Future<void> fetchTopUpData() async {
-    refCotroller.refreshToken();
+
     try {
       isLoading.value = true;
       final offers = await topUpOfferRepository.value.fetchTopUpOffers();

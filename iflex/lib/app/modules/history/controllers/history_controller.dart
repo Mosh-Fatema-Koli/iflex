@@ -19,17 +19,11 @@ refCotroller.refreshToken();
     super.onReady();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   final TransactionRepository _repository = TransactionRepository();
   final transactions = <TransactionModel>[].obs;
 
   Future<void> fetchTransactions() async {
-
-    refCotroller.refreshToken();
 
     try {
       final fetchedTransactions = await _repository.fetchTransactions();

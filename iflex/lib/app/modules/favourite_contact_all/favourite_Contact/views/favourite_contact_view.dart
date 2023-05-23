@@ -27,9 +27,9 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
         if(controller.favouriteContactDataLoaded.value == false){
           return const Center(child: CupertinoActivityIndicator());
         }
-        else if(controller.favouriteContactDataLoaded.value == true && controller.favouriteContactList.isEmpty){
-          return Center(child: Text('No data found'),);
-        }
+        // else if(controller.favouriteContactDataLoaded.value == true && controller.favouriteContactList.isEmpty){
+        //   return Center(child: Text('No data found'),);
+        // }
         else{
           return SingleChildScrollView(
             child: Column(

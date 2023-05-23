@@ -7,7 +7,10 @@ import 'package:iflex/app/modules/widget/k_Text.dart';
 import '../controllers/top_up_offer_controller.dart';
 
 class TopUpOfferView extends GetView<TopUpOfferController> {
-  const TopUpOfferView({Key? key}) : super(key: key);
+TopUpOfferView({Key? key}) : super(key: key);
+
+final controller = Get.put(TopUpOfferController());
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

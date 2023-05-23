@@ -16,8 +16,9 @@ class AboutUs extends StatelessWidget {
           //2
           SliverAppBar(
             expandedHeight: 150.0,
+            pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-                title: KText(text: "About Us",color: Colors.white,),
+                title: KText(text: "About Us",color: Colors.white,fontSize: 20,),
                 centerTitle: true,
                 background: Container(
                   color: Colors.blue,

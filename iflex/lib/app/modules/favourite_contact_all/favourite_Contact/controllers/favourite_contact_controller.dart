@@ -25,10 +25,10 @@ class FavouriteContactController extends GetxController {
 
 
   void fetchFavouriteContactData(){
-    refCotroller.refreshToken();
+    favouriteContactDataLoaded.value = true;
     FavouriteRepository().favouriteContactFetch().then((List<FavouriteContactModel> responseData) {
       favouriteContactList.value = responseData;
-      favouriteContactDataLoaded.value = true;
+
     });
   }
 }

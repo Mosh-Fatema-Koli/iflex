@@ -18,7 +18,7 @@ class TopUpOfferRepository {
       'Authorization': 'Bearer $token',
     };
     final response = await http.get(url,headers:headers);
-
+      print(response);
     if (response.statusCode == 200) {
       final List<dynamic> jsonData = json.decode(response.body);
       return jsonData.map((json) => TopUpOfferModel.fromJson(json)).toList();

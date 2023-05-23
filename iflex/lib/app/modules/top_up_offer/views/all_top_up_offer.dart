@@ -9,11 +9,13 @@ class Alloffers extends StatelessWidget {
    Alloffers({Key? key}) : super(key: key);
 
   final controller = Get.put(TopUpOfferController());
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body:ListView.builder(
+      body:controller.isLoading.value == true ? Center(child: CircularProgressIndicator()) : ListView.builder(
               itemCount: controller.topUpOffers.length,
               itemBuilder: (context, index) =>
                   Padding(
@@ -45,7 +47,8 @@ class Alloffers extends StatelessWidget {
                                       child: Row(
                                         children: [
                                           Icon(Icons.calendar_month),
-                                          KText(text:controller.topUpOffers[index].description.toString()),
+                                         // KText(text:controller.topUpOffers[index].description),
+
                                         ],
                                       ),
                                     )

@@ -17,8 +17,10 @@ class HelpPage extends StatelessWidget {
           //2
           SliverAppBar(
             expandedHeight: 130.0,
+            pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-                title: KText(text: "Need Support?",color: Colors.white,),
+
+                title: KText(text: "Need Support?",color: Colors.white,fontSize: 20,),
                 centerTitle: true,
                 background: Container(
                   color: Colors.blue,

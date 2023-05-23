@@ -118,7 +118,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.TOP_UP_OFFER,
-      page: () => const TopUpOfferView(),
+      page: () => TopUpOfferView(),
       binding: TopUpOfferBinding(),
     ),
   ];

@@ -17,6 +17,9 @@ class TransactionRepository {
     }; // Replace with your API endpoint
 
     final response = await http.get(url,headers: headers);
+
+    print(response);
+
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body) as List<dynamic>;
       return jsonData.map((data) => TransactionModel(
