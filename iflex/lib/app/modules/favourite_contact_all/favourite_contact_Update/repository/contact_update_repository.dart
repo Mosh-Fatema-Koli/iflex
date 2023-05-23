@@ -8,24 +8,30 @@ import 'package:iflex/app/modules/favourite_contact_all/favourite_contact_Update
 
 class ContactNumberUpdateRepository {
 
-  Future<ContactNumberModel> updateContactNumber(ContactNumberModel contactNumber) async {
+  Future<bool> updateContactNumber(ContactUpdateModel contactUpdateModel) async {
 
-    final token = await GetStorage().read("token");
+   try{
+     final token = await GetStorage().read("token");
 
-    Uri url = Uri.parse(ApiUrls.FAVOURITE_CONTACT);
-    final headers = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer $token',
-    };
-    final body = jsonEncode(contactNumber.toJson());
+     Uri url = Uri.parse(ApiUrls.FAVOURITE_CONTACT);
+     final headers = {
+       'Content-Type': 'application/json',
+       'Authorization': 'Bearer $token',
+     };
+     final body = jsonEncode(contactUpdateModel.toJson());
 
-    final response = await http.patch(url, headers: headers, body: body);
+     final response = await http.patch(url, headers: headers, body: body);
 
-    if (response.statusCode == 200) {
-      final jsonResponse = jsonDecode(response.body);
-      return ContactNumberModel.fromJson(jsonResponse);
-    } else {
-      throw Exception('Failed to update contact number.');
-    }
+     if (response.statusCode == 200 || response.statusCode == 201) {
+
+       return true;
+     } else {
+       return false;
+
+     }
+   }catch(e){
+     print(e);
+     return false;
+   }
   }
 }

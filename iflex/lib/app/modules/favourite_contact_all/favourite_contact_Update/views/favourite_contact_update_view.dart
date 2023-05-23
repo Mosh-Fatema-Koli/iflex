@@ -28,6 +28,7 @@ class FavouriteContactUpdateView
             SignUpTextField(
               hintText: 'Enter Your Name',
               keybord: TextInputType.number,
+             // controller: c.,
             ),
             SignUpTextField(
               hintText: '',

@@ -1,32 +1,17 @@
-class ContactNumberModel {
-  int pk;
-  String number;
-  String name;
-  int priority;
+class ContactUpdateModel {
+  int? id;
+  String? number;
+  String? name;
+  String? priority;
 
-  ContactNumberModel({
-    required this.pk,
-    required this.number,
-    required this.name,
-    required this.priority,
-  });
+  ContactUpdateModel({this.id, this.number, this.name, this.priority});
 
-  factory ContactNumberModel.fromJson(Map<String, dynamic> json) {
-    return ContactNumberModel(
-      pk: json['pk'],
-      number: json['fields']['number'],
-      name: json['fields']['name'],
-      priority: json['fields']['priority'],
-    );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['number'] = number;
+    data['name'] = name;
+    data['priority'] = priority;
+    return data;
   }
-
-  Map<String, dynamic> toJson() => {
-    'model': 'flexi.contactnumbermodel',
-    'pk': pk,
-    'fields': {
-      'number': number,
-      'name': name,
-      'priority': priority,
-    },
-  };
 }

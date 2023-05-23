@@ -5,17 +5,13 @@ import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 
 
-class Alloffers extends StatelessWidget {
-   Alloffers({Key? key}) : super(key: key);
-
-  final controller = Get.put(TopUpOfferController());
+class AllOffers extends GetWidget<TopUpOfferController> {
+  const AllOffers({Key? key}) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-      body:controller.isLoading.value == true ? Center(child: CircularProgressIndicator()) : ListView.builder(
+    return controller.isLoading.value == true ? Center(child: CircularProgressIndicator()) : ListView.builder(
               itemCount: controller.topUpOffers.length,
               itemBuilder: (context, index) =>
                   Padding(
@@ -67,9 +63,9 @@ class Alloffers extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ))
+                  ));
 
 
-    );
+
   }
 }
