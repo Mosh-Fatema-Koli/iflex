@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/models/favourite_contact_model.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/views/contact_edit_delete.dart';
 import 'package:iflex/app/modules/widget/hexcolor.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 import 'package:iflex/app/routes/app_pages.dart';
@@ -66,7 +67,12 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
        subtitle: KText(text: favouriteContact.fields?.number,),
 
        trailing:IconButton(onPressed: (){
-          Get.toNamed(Routes.FAVOURITE_CONTACT_UPDATE);
+          Get.to(ContactNumberEdit(
+              id:controller.favouriteContactList[index].pk!,
+            name:controller.favouriteContactList[index].fields!.name.toString(),
+            number: controller.favouriteContactList[index].fields!.number.toString(),
+            prioty : controller.favouriteContactList[index].fields!.priority.hashCode,
+          ));
        },icon:const Icon (Icons.edit),
        ),
 

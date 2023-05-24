@@ -98,7 +98,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FAVOURITE_CONTACT_UPDATE,
-      page: () => const FavouriteContactUpdateView(),
+      page: () => const FavouriteContactUpdateView(favouriteContact:_Paths.FAVOURITE_CONTACT_UPDATE ),
       binding: FavouriteContactUpdateBinding(),
     ),
     GetPage(

@@ -1,17 +1,19 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/controllers/favourite_contact_controller.dart';
 import 'package:iflex/app/modules/widget/app_utils.dart';
 import 'package:iflex/app/modules/widget/custom_TextField.dart';
 import 'package:iflex/app/modules/widget/k_Text.dart';
 
-import '../controllers/favourite_contact_update_controller.dart';
+class ContactNumberEdit extends GetWidget<FavouriteContactController>{
 
-class FavouriteContactUpdateView extends GetView<FavouriteContactUpdateController> {
+ final int id ;
+ final String name;
+ final String number;
+ final int prioty;
 
-  final String favouriteContact;
-
-  const FavouriteContactUpdateView({Key? key,required this.favouriteContact}) : super(key: key);
+  ContactNumberEdit({Key? key,required this.id,required this.name, required this.number, required this.prioty}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,24 +28,24 @@ class FavouriteContactUpdateView extends GetView<FavouriteContactUpdateControlle
             SignUpTextField(
               hintText: 'Enter Your Name',
               keybord: TextInputType.text,
-               controller: controller.tecName,
+            controller: controller.tecName
             ),
             SignUpTextField(
               hintText: 'Enter Phone Number',
               keybord: TextInputType.number,
-              controller: controller.tecPhoneNo,
+             // controller: controller.tecPhoneNo,
               suffixIcon: IconButton(onPressed: (){},icon: Icon(Icons.contact_phone),),
             ),
 
             SignUpTextField(
               hintText: 'Priyoti Number',
               keybord: TextInputType.number,
-              controller: controller.tecPriyoti,
+             // controller: controller.tecPriyoti,
             ),
 
             Apputils.sizeH10,
 
-            MaterialButton(onPressed: (){controller.updateContactNumber;},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'Update',color: Colors.white,),),
+            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'Update',color: Colors.white,),),
 
             MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.red,child: KText(text: 'Update',color: Colors.white,),)
 

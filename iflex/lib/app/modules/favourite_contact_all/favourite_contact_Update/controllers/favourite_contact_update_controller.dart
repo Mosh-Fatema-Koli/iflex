@@ -1,22 +1,24 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iflex/app/modules/favourite_contact_all/favourite_contact_Update/models/contact_update_model.dart';
-import 'package:iflex/app/modules/favourite_contact_all/favourite_contact_Update/repository/contact_update_repository.dart';
+import 'package:iflex/app/commons/widgets/global_widgets.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/models/contact_update_model.dart';
+import 'package:iflex/app/modules/favourite_contact_all/favourite_Contact/repository/contact_update_repository.dart';
 
 class FavouriteContactUpdateController extends GetxController {
   //TODO: Implement FavouriteContactUpdateController
-  RxList<ContactUpdateModel> favouriteContactList = <ContactUpdateModel>[].obs;
-  RxBool favouriteContactDataLoaded = false.obs;
 
   final TextEditingController tecName = TextEditingController();
   final TextEditingController tecPhoneNo = TextEditingController();
   final TextEditingController tecPriyoti = TextEditingController();
+  final TextEditingController tecid = TextEditingController();
 
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+
   }
 
   @override
@@ -30,19 +32,34 @@ class FavouriteContactUpdateController extends GetxController {
   }
 
 
-  Future<void> updateContactNumber() async {
+  void updateContactNumber() async {
+    GlobalWidgets.customLoader();
 
-    favouriteContactDataLoaded.value = true;
+    ContactUpdateModel contactUpdateModel = ContactUpdateModel(
+       // id: tecid.hashCode,
+        name: tecName.text.trim(),
+        number: tecPhoneNo.text.trim(),
+        priority: tecPriyoti.text.trim()
+    );
+    ContactNumberUpdateRepository.updateContactNumber(contactUpdateModel).then((bool ? responseData) async {
+      Get.back();
 
-    ContactNumberUpdateRepository().updateContactNumber().
+      if (responseData == true) {
 
+        Get.snackbar("Update Successfull", "congrass",backgroundColor: Colors.indigo[400],colorText: Colors.white);
 
+      } else {
+
+        Get.snackbar("Update Failed","Try Again",backgroundColor: Colors.indigo[400],colorText: Colors.white);
+
+      }
     });
-    try {
-      await repository.updateContactNumber(contactNumber);
-      // Success! Handle the updated data as needed
-    } catch (error) {
-      // Handle error
-    }
+
   }
+
+
+
+
 }
+
+
