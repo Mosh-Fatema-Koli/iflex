@@ -43,12 +43,11 @@ class FavouriteContactController extends GetxController {
 
   void updateContactNumber() async {
     GlobalWidgets.customLoader();
-
+    refCotroller.refreshToken();
     ContactUpdateModel contactUpdateModel = ContactUpdateModel(
-      // id: tecid.hashCode,
-        name: tecName.text,
-        number: tecPhoneNo.text,
-        priority: tecPriyoti.text
+        name: tecName.text.trim(),
+        number: tecPhoneNo.text.trim(),
+        priority: tecPriyoti.text.trim(),
     );
     ContactNumberUpdateRepository.updateContactNumber(contactUpdateModel).then((bool ? responseData) async {
       Get.back();

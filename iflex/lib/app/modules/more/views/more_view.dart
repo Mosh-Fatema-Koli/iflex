@@ -88,17 +88,17 @@ class MoreView extends GetView<MoreController> {
                       title: KText(text: "Favourite Contact",),
                     ),
                   ),
-                  Dividerwidget(),
-
-                  GestureDetector(
-                    onTap: (){
-                    Get.to(RechargeRequestPage());
-                    },
-                    child: ListTile(
-                      leading: Icon(Icons.request_page,color: Colors.blue[900],),
-                      title: KText(text: "Recharge Request",),
-                    ),
-                  ),
+                  // Dividerwidget(),
+                  //
+                  // GestureDetector(
+                  //   onTap: (){
+                  //   Get.to(RechargeRequestPage());
+                  //   },
+                  //   child: ListTile(
+                  //     leading: Icon(Icons.request_page,color: Colors.blue[900],),
+                  //     title: KText(text: "Recharge Request",),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -180,7 +180,7 @@ class MoreView extends GetView<MoreController> {
                     leading: Icon(Icons.delete,color: Colors.blue[900],),
                     title: KText(text: "Delete Account",),
                   ),
-                  SizedBox(height: 80,)
+                  SizedBox(height: 40,)
 
                 ],
               ),

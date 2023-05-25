@@ -26,7 +26,7 @@ class FavouriteContactView extends GetView<FavouriteContactController> {
       ),
       body: Obx(() {
         if(controller.favouriteContactDataLoaded.value == false){
-          return const Center(child: CupertinoActivityIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
         // else if(controller.favouriteContactDataLoaded.value == true && controller.favouriteContactList.isEmpty){
         //   return Center(child: Text('No data found'),);

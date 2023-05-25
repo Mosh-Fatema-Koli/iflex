@@ -33,21 +33,21 @@ class ContactNumberEdit extends GetWidget<FavouriteContactController>{
             SignUpTextField(
               hintText: 'Enter Phone Number',
               keybord: TextInputType.number,
-             // controller: controller.tecPhoneNo,
+              controller: controller.tecPhoneNo,
               suffixIcon: IconButton(onPressed: (){},icon: Icon(Icons.contact_phone),),
             ),
 
             SignUpTextField(
               hintText: 'Priyoti Number',
               keybord: TextInputType.number,
-             // controller: controller.tecPriyoti,
+             controller: controller.tecPriyoti,
             ),
 
             Apputils.sizeH10,
 
-            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'Update',color: Colors.white,),),
+            MaterialButton(onPressed: (){controller.updateContactNumber();},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.blue,child: KText(text: 'Update',color: Colors.white,),),
 
-            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.red,child: KText(text: 'Update',color: Colors.white,),)
+            MaterialButton(onPressed: (){},height: 40,minWidth: MediaQuery.of(context).size.width,color:Colors.red,child: KText(text: 'Delete',color: Colors.white,),)
 
           ],
         ),

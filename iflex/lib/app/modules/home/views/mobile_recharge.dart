@@ -26,91 +26,94 @@ class MobileRecharge extends StatelessWidget {
         ],
 
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        Get.to(PhoneNoSet());
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.blue,width: 1)              ),
-                        height: 50,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              KText(text: "Enter Moble Number",color: Colors.grey[700],fontSize: 14,),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(PhoneNoSet());
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.blue,width: 1)              ),
+                          height: 50,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                KText(text: "Enter Moble Number",color: Colors.grey[700],fontSize: 14,),
 
-                              Row(
-                                children: [
+                                Row(
+                                  children: [
 
-                                  Icon(Icons.contact_phone,color: Colors.grey[700],),
-                                ],
-                              )
-                            ],
+                                    Icon(Icons.contact_phone,color: Colors.grey[700],),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Apputils.sizeH10,
-                    SignUpTextField(
-                      hintText: 'Enter Amount',
-                      keybord: TextInputType.number,
-                    )
-                  ],
-                ),
-              ),
-
-              Container(
-                 height: 50,
-                color: HexColor("#EFF2F9"),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.local_fire_department_rounded,color: Colors.amber,),
-                          Apputils.sizeW5,
-                          KText(text: " MOST POPULAR OFFERS")
-                        ],
-                      ),
-                      GestureDetector(
-                          onTap: (){
-                            Get.to(TopUpOfferView());
-                          },
-                          child: KText(text: "View All"))
+                      Apputils.sizeH10,
+                      SignUpTextField(
+                        hintText: 'Enter Amount',
+                        keybord: TextInputType.number,
+                      )
                     ],
                   ),
                 ),
-              ),
-              SizedBox(
 
-                height:400,
-                  child:  AllOffers(),),
+                Container(
+                   height: 50,
+                  color: HexColor("#EFF2F9"),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.local_fire_department_rounded,color: Colors.amber,),
+                            Apputils.sizeW5,
+                            KText(text: " MOST POPULAR OFFERS")
+                          ],
+                        ),
+                        GestureDetector(
+                            onTap: (){
+                              Get.to(TopUpOfferView());
+                            },
+                            child: KText(text: "View All"))
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
 
-            ],
-          ),
-          MaterialButton(onPressed: (){
-            Get.to(SummaryPage());
-          },
-            minWidth: MediaQuery.of(context).size.width,
-            color: Colors.blue,
-            height: 50,
-            child: KText(text: 'PROCESS',color: Colors.white,),)
-        ],
+                  height:420,
+                    child:  AllOffers(),),
+
+              ],
+            ),
+            MaterialButton(onPressed: (){
+              Get.to(SummaryPage());
+            },
+              minWidth: MediaQuery.of(context).size.width,
+              color: Colors.blue,
+              height: 50,
+              child: KText(text: 'PROCESS',color: Colors.white,),)
+          ],
+        ),
       ),
+   
     
     );
   }

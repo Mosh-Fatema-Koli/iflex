@@ -19,14 +19,22 @@ class ContactNumberUpdateRepository {
      'Authorization': 'Bearer $token',
     };
     String updateBody = jsonEncode(contactUpdateModel.toJson());
+
+    print(updateBody);
+
     final http.Response response = await http
-        .post(url, body: updateBody,
+        .patch(url, body: updateBody,
         headers: headers)
         .timeout(const Duration(minutes: 1));
-         print(response);
+
+         print("response $response");
 
     if (response.statusCode == 200 || response.statusCode == 201) {
-     // contactUpdateResponseModel = ContactUpdateResponseModel.fromJson(jsonDecode(response.body));
+
+     var data = jsonEncode(response.body);
+
+     print(data);
+
      return true;
 
     } else {

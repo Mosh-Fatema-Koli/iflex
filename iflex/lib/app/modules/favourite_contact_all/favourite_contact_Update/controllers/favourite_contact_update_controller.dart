@@ -28,6 +28,11 @@ class FavouriteContactUpdateController extends GetxController {
 
   @override
   void onClose() {
+
+    tecid.dispose();
+    tecPhoneNo.dispose();
+    tecPriyoti.dispose();
+    tecName.dispose();
     super.onClose();
   }
 

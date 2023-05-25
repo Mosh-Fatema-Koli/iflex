@@ -20,7 +20,7 @@ class AllOffers extends GetWidget<TopUpOfferController> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Colors.grey, width: 1)),
-                      height: 70,
+
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: Row(
@@ -43,7 +43,10 @@ class AllOffers extends GetWidget<TopUpOfferController> {
                                       child: Row(
                                         children: [
                                           Icon(Icons.calendar_month),
-                                         // KText(text:controller.topUpOffers[index].description),
+                                          Apputils.sizeW5,
+                                     Container(
+                                         width:  170 ,
+                                         child: KText(text:controller.topUpOffers[index].description,fontSize: 12,)),
 
                                         ],
                                       ),
